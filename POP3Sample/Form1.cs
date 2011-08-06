@@ -18,6 +18,8 @@ namespace POP3Sample
 
         private void cmdConnect_Click(object sender, EventArgs e)
         {
+            cmdConnect.Enabled = false;
+            Cursor.Current = Cursors.WaitCursor;
             lstInfo.Items.Clear();
             
             {
@@ -30,6 +32,8 @@ namespace POP3Sample
                 {
                     lstInfo.Items.Add(DateTime.Now + " - " + objPop3SSL.ErrorText.ToString());
                     MessageBox.Show(objPop3SSL.ErrorText.ToString());
+                    cmdConnect.Enabled = true;
+                    Cursor.Current = Cursors.Default;
                     return;
                 }
 
@@ -41,7 +45,7 @@ namespace POP3Sample
 
                 if (NoOfMessage > 0)
                 {
-                    //we have some messages, so loop through each one and get some simple info
+                    //we have some messages, so loop through each one and get some simple info (only get the top 10)
                     for (int i = 1; i < 10; i++)
                     {
                         MessageHeaders = objPop3SSL.GetMessageContent(i);
@@ -56,6 +60,8 @@ namespace POP3Sample
                 //clean up
                 objPop3SSL.Disconnect();
                 lstInfo.Items.Add(DateTime.Now + " - Disconected from Server");
+                Cursor.Current = Cursors.Default;
+                cmdConnect.Enabled = true;
             }
 
         }

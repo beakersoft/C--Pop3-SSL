@@ -29,27 +29,27 @@
         private void InitializeComponent()
         {
             this.grpInfo = new System.Windows.Forms.GroupBox();
+            this.lblPort = new System.Windows.Forms.Label();
+            this.txtServerPort = new System.Windows.Forms.NumericUpDown();
             this.txtUsername = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.MaskedTextBox();
-            this.txtServer = new System.Windows.Forms.TextBox();
             this.lblPassword = new System.Windows.Forms.Label();
             this.lblUsername = new System.Windows.Forms.Label();
             this.lblServer = new System.Windows.Forms.Label();
             this.lstInfo = new System.Windows.Forms.ListBox();
             this.cmdConnect = new System.Windows.Forms.Button();
-            this.txtServerPort = new System.Windows.Forms.NumericUpDown();
-            this.lblPort = new System.Windows.Forms.Label();
+            this.txtServer = new System.Windows.Forms.ComboBox();
             this.grpInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtServerPort)).BeginInit();
             this.SuspendLayout();
             // 
             // grpInfo
             // 
+            this.grpInfo.Controls.Add(this.txtServer);
             this.grpInfo.Controls.Add(this.lblPort);
             this.grpInfo.Controls.Add(this.txtServerPort);
             this.grpInfo.Controls.Add(this.txtUsername);
             this.grpInfo.Controls.Add(this.txtPassword);
-            this.grpInfo.Controls.Add(this.txtServer);
             this.grpInfo.Controls.Add(this.lblPassword);
             this.grpInfo.Controls.Add(this.lblUsername);
             this.grpInfo.Controls.Add(this.lblServer);
@@ -60,34 +60,51 @@
             this.grpInfo.TabStop = false;
             this.grpInfo.Text = "Connection Information";
             // 
+            // lblPort
+            // 
+            this.lblPort.AutoSize = true;
+            this.lblPort.Location = new System.Drawing.Point(216, 30);
+            this.lblPort.Name = "lblPort";
+            this.lblPort.Size = new System.Drawing.Size(26, 13);
+            this.lblPort.TabIndex = 8;
+            this.lblPort.Text = "Port";
+            // 
+            // txtServerPort
+            // 
+            this.txtServerPort.Location = new System.Drawing.Point(219, 47);
+            this.txtServerPort.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.txtServerPort.Name = "txtServerPort";
+            this.txtServerPort.Size = new System.Drawing.Size(51, 20);
+            this.txtServerPort.TabIndex = 1;
+            this.txtServerPort.Value = new decimal(new int[] {
+            995,
+            0,
+            0,
+            0});
+            // 
             // txtUsername
             // 
             this.txtUsername.Location = new System.Drawing.Point(288, 47);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(250, 20);
-            this.txtUsername.TabIndex = 6;
-            this.txtUsername.Text = "beakersoft@gmail.com";
+            this.txtUsername.TabIndex = 2;
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(553, 46);
+            this.txtPassword.Location = new System.Drawing.Point(553, 48);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(250, 20);
-            this.txtPassword.TabIndex = 5;
-            // 
-            // txtServer
-            // 
-            this.txtServer.Location = new System.Drawing.Point(10, 47);
-            this.txtServer.Name = "txtServer";
-            this.txtServer.Size = new System.Drawing.Size(203, 20);
-            this.txtServer.TabIndex = 4;
-            this.txtServer.Text = "pop.gmail.com";
+            this.txtPassword.TabIndex = 3;
             // 
             // lblPassword
             // 
             this.lblPassword.AutoSize = true;
-            this.lblPassword.Location = new System.Drawing.Point(559, 30);
+            this.lblPassword.Location = new System.Drawing.Point(550, 30);
             this.lblPassword.Name = "lblPassword";
             this.lblPassword.Size = new System.Drawing.Size(53, 13);
             this.lblPassword.TabIndex = 2;
@@ -117,43 +134,28 @@
             this.lstInfo.Location = new System.Drawing.Point(12, 124);
             this.lstInfo.Name = "lstInfo";
             this.lstInfo.Size = new System.Drawing.Size(818, 134);
-            this.lstInfo.TabIndex = 1;
+            this.lstInfo.TabIndex = 4;
             // 
             // cmdConnect
             // 
             this.cmdConnect.Location = new System.Drawing.Point(755, 264);
             this.cmdConnect.Name = "cmdConnect";
             this.cmdConnect.Size = new System.Drawing.Size(75, 23);
-            this.cmdConnect.TabIndex = 2;
+            this.cmdConnect.TabIndex = 5;
             this.cmdConnect.Text = "Connect";
             this.cmdConnect.UseVisualStyleBackColor = true;
             this.cmdConnect.Click += new System.EventHandler(this.cmdConnect_Click);
             // 
-            // txtServerPort
+            // txtServer
             // 
-            this.txtServerPort.Location = new System.Drawing.Point(219, 47);
-            this.txtServerPort.Maximum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            0});
-            this.txtServerPort.Name = "txtServerPort";
-            this.txtServerPort.Size = new System.Drawing.Size(51, 20);
-            this.txtServerPort.TabIndex = 7;
-            this.txtServerPort.Value = new decimal(new int[] {
-            995,
-            0,
-            0,
-            0});
-            // 
-            // lblPort
-            // 
-            this.lblPort.AutoSize = true;
-            this.lblPort.Location = new System.Drawing.Point(216, 30);
-            this.lblPort.Name = "lblPort";
-            this.lblPort.Size = new System.Drawing.Size(26, 13);
-            this.lblPort.TabIndex = 8;
-            this.lblPort.Text = "Port";
+            this.txtServer.FormattingEnabled = true;
+            this.txtServer.Items.AddRange(new object[] {
+            "pop.gmail.com",
+            "pop3.live.com"});
+            this.txtServer.Location = new System.Drawing.Point(10, 47);
+            this.txtServer.Name = "txtServer";
+            this.txtServer.Size = new System.Drawing.Size(203, 21);
+            this.txtServer.TabIndex = 0;
             // 
             // Form1
             // 
@@ -177,7 +179,6 @@
         private System.Windows.Forms.GroupBox grpInfo;
         private System.Windows.Forms.TextBox txtUsername;
         private System.Windows.Forms.MaskedTextBox txtPassword;
-        private System.Windows.Forms.TextBox txtServer;
         private System.Windows.Forms.Label lblPassword;
         private System.Windows.Forms.Label lblUsername;
         private System.Windows.Forms.Label lblServer;
@@ -185,6 +186,7 @@
         private System.Windows.Forms.Button cmdConnect;
         private System.Windows.Forms.Label lblPort;
         private System.Windows.Forms.NumericUpDown txtServerPort;
+        private System.Windows.Forms.ComboBox txtServer;
     }
 }
 
